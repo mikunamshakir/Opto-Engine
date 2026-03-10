@@ -10,6 +10,62 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+        }
+
+        body {
+            padding-top: 70px; /* Increased to prevent navbar overlap */
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Carousel Custom Height & Responsiveness */
+        .carousel-item {
+            height: 70vh; /* Uses 70% of viewport height */
+            min-height: 400px;
+            background-color: #333; /* Fallback color */
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+
+        .carousel-caption {
+            bottom: 25%;
+            background: rgba(0, 0, 0, 0.6); /* Slightly darker for better contrast */
+            padding: 30px;
+            border-radius: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 80px 0;
+        }
+
+        /* Card Hover Effect */
+        .feature-card {
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background-color: #1a1d20;
+            color: #dee2e6;
+            padding: 60px 0 20px;
+        }
+
+        /* Fix for mobile search bar in offcanvas */
+        .offcanvas-body .form-control {
+            margin-bottom: 10px;
+        }
+        .slidea{
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1480&auto=format&fit=crop');
+        }
+    </style>
 </head>
 
 <body>
