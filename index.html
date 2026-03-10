@@ -9,77 +9,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 60px; /* Offset for fixed navbar */
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Carousel Custom Height */
-        .carousel-item {
-            height: 500px;
-            min-height: 300px;
-            background: no-repeat center center scroll;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-        }
-
-        .carousel-caption {
-            bottom: 20%;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        /* Section Spacing */
-        section {
-            padding: 60px 0;
-        }
-
-        footer {
-            background-color: #212529;
-            color: white;
-            padding: 40px 0;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <!-- Fixed Navbar -->
         <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
             <div class="container">
-                <a class="navbar-brand fw-bold text-primary" href="#">Opto Engine</a>
+                <h1 class="navbar-brand fw-bold text-primary">Opto Engine</h1>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title">Opto Engine</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                <!-- Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
 
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#research">Research</a>
+                            </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Resources
+                                </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Anatomy</a></li>
-                                    <li><a class="dropdown-item" href="#">Physiology</a></li>
+                                    <li><a class="dropdown-item" href="#anatomy">Anatomy</a></li>
+                                    <li><a class="dropdown-item" href="#physiology">Physiology</a></li>
+                                    <li><a class="dropdown-item" href="#primary-care-optometry">Primary Care Optometry</a></li>
+                                    <li><a class="dropdown-item" href="#occular-optometry">Occular/Medical optometry</a></li>
+                                    <li><a class="dropdown-item" href="#rehabilitation">Low Vision Optometry</a></li>
+                                    <li><a class="dropdown-item" href="#rest-all">Other Fields</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                    <li><a class="dropdown-item" href="#about">About Us</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        <form class="d-flex mt-3 mt-lg-0">
-                            <input class="form-control me-2" type="search" placeholder="Search resources...">
+                        <form class="d-flex mt-3 mt-lg-0" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search resources..." aria-label="Search">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </form>
                     </div>
@@ -90,19 +66,19 @@
 
     <main>
         <!-- Carousel Section -->
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1480&auto=format&fit=crop');">
+                <div class="carousel-item active" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1480&auto=format&fit=crop');">
                     <div class="carousel-caption">
                         <h2 class="display-4 fw-bold">Innovative Research</h2>
-                        <p class="lead">Exploring the next frontier of optical engineering and physiology.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Read Our Papers</a>
+                        <p class="lead">Exploring the next frontier of optical engineering, vision care and management.</p>
+                        <a href="#research" class="btn btn-primary btn-lg">Read Our Papers</a>
                     </div>
                 </div>
                 <!-- Slide 2 -->
@@ -110,7 +86,7 @@
                     <div class="carousel-caption">
                         <h2 class="display-4 fw-bold">Anatomy Insights</h2>
                         <p class="lead">In-depth guides to understanding visual systems.</p>
-                        <a href="#" class="btn btn-outline-light btn-lg">Explore Resources</a>
+                        <a href="#" class="btn btn-light btn-lg text-primary">Explore Resources</a>
                     </div>
                 </div>
                 <!-- Slide 3 -->
@@ -123,40 +99,46 @@
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
 
         <!-- Features Section -->
-        <section class="container text-center" id="research">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm p-4">
-                        <div class="card-body">
+        <section class="container" id="research">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Our Core Expertise</h2>
+                <div class="bg-primary mx-auto" style="height: 3px; width: 60px;"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                        <div class="card-body text-center">
                             <h3 class="h4">Latest Research</h3>
                             <p class="text-muted">Stay updated with the newest findings in the field of opto-mechanics and light science.</p>
-                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                            <a href="#" class="btn btn-link text-decoration-none">Learn More &rarr;</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm p-4">
-                        <div class="card-body">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                        <div class="card-body text-center">
                             <h3 class="h4">Physiology Database</h3>
                             <p class="text-muted">Comprehensive data and interactive charts regarding the human eye and visual cortex.</p>
-                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                            <a href="#" class="btn btn-link text-decoration-none">Learn More &rarr;</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm p-4">
-                        <div class="card-body">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 feature-card">
+                        <div class="card-body text-center">
                             <h3 class="h4">Developer API</h3>
                             <p class="text-muted">Integrate our engine data directly into your own applications with our robust API.</p>
-                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                            <a href="#" class="btn btn-link text-decoration-none">Learn More &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -164,20 +146,47 @@
         </section>
 
         <!-- Informational Section -->
-        <section class="bg-light">
+        <section class="bg-light" id="...">
             <div class="container">
-                <div class="row align-items-center">
+                <div class="row align-items-center g-5">
                     <div class="col-md-6">
                         <h2 class="fw-bold mb-4">Why Opto Engine?</h2>
-                        <p>This is a placeholder for your detailed description. You can talk about your mission, the specific technology you use, or the problem you are solving in the world of optics.</p>
+                        <p class="text-secondary lead">Advancing the science of light through rigorous documentation and open data access.</p>
+                        <p>Our platform serves as a bridge between academic research and practical engineering, providing tools for both optometrists and optical hardware developers.</p>
                         <ul class="list-unstyled">
-                            <li><strong>✓</strong> High Precision Data</li>
-                            <li><strong>✓</strong> Open Source Research</li>
-                            <li><strong>✓</strong> Community Driven</li>
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> High Precision Data Analysis</li>
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> Open Source Research Papers</li>
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> Global Community of Scientists</li>
                         </ul>
+                        <button class="btn btn-primary mt-3">Download Technical Specs</button>
                     </div>
                     <div class="col-md-6">
-                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Tech">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop" 
+                             class="img-fluid rounded shadow-lg" 
+                             alt="Laboratory technician working with optical lenses">
+                    </div>
+                </div>
+            </div>
+        </section><hr>
+        <section class="bg-light" id="about">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-md-6">
+                        <h1 class="fw-bold mb-4">Muhammad Asim Shakir<sup><span class="badge rounded-pill text-bg-primary">Leading Developer</span></sup></h1>
+                        <h2 class="fw-bold text-primary">Aim Of working</h2>
+                        <p class="text-secondary mb-2 lead "><q>This project is highly focused on providing optometrists assisstance as much as possible in this era of ever and rapid growing technology.</q></p>
+                        <h4 class="text-primary mb-4 fw-bold">This of our project mainly focuses on the Key Points:</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> High Class Information Level</li>
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> Active Biasing Towards Advancements</li>
+                            <li class="mb-2"><strong class="text-primary me-2">✓</strong> Establish Mutual Community of Optometrists</li>
+                        </ul>
+                        <a class="btn btn-primary mt-3" href="https://www.linkedin.com/in/muhammad-asim-shakir-440ab93b0">Visit on LinkedIn</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1669023414180-4dcf35d943e1?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             class="img-fluid rounded shadow-lg" 
+                             alt="Laboratory technician working with optical lenses">
                     </div>
                 </div>
             </div>
@@ -186,30 +195,33 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Opto Engine</h5>
-                    <p class="small text-secondary">Advancing optical science through technology and collaboration.</p>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers.</p>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-secondary text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Terms of Service</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none">Contact Support</a></li>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
+                    <ul class="list-unstyled text-md-center">
+                        <li><a href="#" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Newsletter</h5>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Newsletter</h5>
+                    <p class="small text-secondary">Get the latest updates in optical engineering.</p>
                     <div class="input-group">
-                        <input type="email" class="form-control form-control-sm" placeholder="Email address">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address" aria-label="Email address">
                         <button class="btn btn-primary btn-sm">Join</button>
                     </div>
                 </div>
             </div>
-            <hr class="mt-4 border-secondary">
-            <p class="mb-0 small text-secondary">&copy; 2024 Opto Engine. All rights reserved.</p>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
