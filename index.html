@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opto Engine | Professional Optics Solutions</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px; /* Offset for fixed navbar */
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Carousel Custom Height */
+        .carousel-item {
+            height: 500px;
+            min-height: 300px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .carousel-caption {
+            bottom: 20%;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 60px 0;
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Fixed Navbar -->
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="#">Opto Engine</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Opto Engine</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Resources</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Anatomy</a></li>
+                                    <li><a class="dropdown-item" href="#">Physiology</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3 mt-lg-0">
+                            <input class="form-control me-2" type="search" placeholder="Search resources...">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Carousel Section -->
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1480&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Innovative Research</h2>
+                        <p class="lead">Exploring the next frontier of optical engineering and physiology.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Read Our Papers</a>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1532187875605-2fe35871c9d2?q=80&w=1470&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Anatomy Insights</h2>
+                        <p class="lead">In-depth guides to understanding visual systems.</p>
+                        <a href="#" class="btn btn-outline-light btn-lg">Explore Resources</a>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1470&auto=format&fit=crop');">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Engineering Excellence</h2>
+                        <p class="lead">Precision tools and documentation for developers.</p>
+                        <a href="#" class="btn btn-success btn-lg">Join the Team</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <!-- Features Section -->
+        <section class="container text-center" id="research">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="card-body">
+                            <h3 class="h4">Latest Research</h3>
+                            <p class="text-muted">Stay updated with the newest findings in the field of opto-mechanics and light science.</p>
+                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="card-body">
+                            <h3 class="h4">Physiology Database</h3>
+                            <p class="text-muted">Comprehensive data and interactive charts regarding the human eye and visual cortex.</p>
+                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm p-4">
+                        <div class="card-body">
+                            <h3 class="h4">Developer API</h3>
+                            <p class="text-muted">Integrate our engine data directly into your own applications with our robust API.</p>
+                            <a href="#" class="btn btn-link">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Section -->
+        <section class="bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 class="fw-bold mb-4">Why Opto Engine?</h2>
+                        <p>This is a placeholder for your detailed description. You can talk about your mission, the specific technology you use, or the problem you are solving in the world of optics.</p>
+                        <ul class="list-unstyled">
+                            <li><strong>✓</strong> High Precision Data</li>
+                            <li><strong>✓</strong> Open Source Research</li>
+                            <li><strong>✓</strong> Community Driven</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1470&auto=format&fit=crop" class="img-fluid rounded shadow" alt="Tech">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology and collaboration.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-secondary text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Terms of Service</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Newsletter</h5>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address">
+                        <button class="btn btn-primary btn-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 border-secondary">
+            <p class="mb-0 small text-secondary">&copy; 2024 Opto Engine. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
