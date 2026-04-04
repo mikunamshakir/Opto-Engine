@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eye Physiology Charts | Visual Function & Neural Pathways | Opto Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .physio-card {
+            border: none;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .physio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+        .chart-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+        .formula-box {
+            background: #f8f9fa;
+            border-left: 4px solid #0d6efd;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+        .spectrum-bar {
+            height: 30px;
+            border-radius: 15px;
+            background: linear-gradient(90deg, #8B00FF 0%, #0000FF 20%, #00FF00 40%, #FFFF00 60%, #FF7F00 80%, #FF0000 100%);
+            margin: 1rem 0;
+        }
+        .pathway-svg {
+            background: #1a1a2e;
+            border-radius: 20px;
+            padding: 1rem;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+        @media print {
+            .navbar, footer, .btn, .no-print { display: none; }
+            body { padding-top: 0; }
+            .physio-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1532187641314-5f96d83a2de9?q=80&w=1470&auto=format&fit=crop');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Eye Physiology Charts</h1>
+                <p class="lead text-white-50">Comprehensive visual guides to phototransduction, neural processing, color vision, accommodation, and visual pathway dynamics.</p>
+                <button onclick="window.print();" class="btn btn-light mt-3 no-print"><i class="fas fa-print me-2"></i> Print All Charts</button>
+            </div>
+        </section>
+
+        <section class="content-section py-5">
+            <div class="container">
+                <!-- Chart 1: Phototransduction Cascade -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-bolt me-2"></i> 1. Phototransduction Cascade</h3>
+                        <small>Conversion of light into electrical signals in photoreceptors</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="bg-light p-3 rounded-3">
+                                    <h5>Step-by-Step Process (Rod Photoreceptor)</h5>
+                                    <ol class="mt-2">
+                                        <li><strong>Dark Current:</strong> cGMP levels high → Na⁺/Ca²⁺ channels open → cell depolarized (-40mV)</li>
+                                        <li><strong>Light Absorption:</strong> 11-cis-retinal → all-trans-retinal (isomerization)</li>
+                                        <li><strong>Opsin Activation:</strong> Rhodopsin activates transducin (G-protein)</li>
+                                        <li><strong>PDE Activation:</strong> cGMP phosphodiesterase hydrolyzes cGMP → cGMP ↓</li>
+                                        <li><strong>Channel Closure:</strong> Na⁺/Ca²⁺ channels close → hyperpolarization (-70mV)</li>
+                                        <li><strong>Neurotransmitter Release:</strong> Glutamate release decreases → bipolar cell signaling</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="formula-box">
+                                    <i class="fas fa-sun text-warning me-2"></i> Light + Rhodopsin → Metarhodopsin II<br>
+                                    <i class="fas fa-arrow-right ms-3"></i> Transducin (G<sub>t</sub>) activation<br>
+                                    <i class="fas fa-arrow-right ms-3"></i> PDE → cGMP ↓ → Hyperpolarization
+                                </div>
+                                <div class="alert alert-primary mt-3 small">
+                                    <i class="fas fa-clock me-1"></i> <strong>Recovery:</strong> All-trans-retinal → 11-cis-retinal via retinal isomerase (RPE65) in retinal pigment epithelium. Time: ~30-40 minutes for full dark adaptation.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Visible Spectrum & Cone Sensitivities -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-palette me-2"></i> 2. Color Vision Physiology</h3>
+                        <small>Cone photoreceptor spectral sensitivities & opponent processing</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="spectrum-bar"></div>
+                        <div class="row mt-3">
+                            <div class="col-md-4 text-center">
+                                <span class="legend-color" style="background: #8B00FF;"></span> <strong>S-Cone (Short)</strong><br>
+                                <small>Peak: 420nm (Blue-Violet)</small>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <span class="legend-color" style="background: #00CC00;"></span> <strong>M-Cone (Medium)</strong><br>
+                                <small>Peak: 530nm (Green)</small>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <span class="legend-color" style="background: #FF3333;"></span> <strong>L-Cone (Long)</strong><br>
+                                <small>Peak: 560nm (Yellow-Green)</small>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-4">
+                            <table class="table table-bordered">
+                                <thead class="table-light"><tr><th>Color Deficiency</th><th>Affected Cone</th><th>Prevalence (Males)</th><th>Chromosomal Location</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Protanopia</td><td>L-cone (red) missing</td><td>~1%</td><td>Xq28</td></tr>
+                                    <tr><td>Deuteranopia</td><td>M-cone (green) missing</td><td>~1%</td><td>Xq28</td></tr>
+                                    <tr><td>Tritanopia</td><td>S-cone (blue) missing</td><td>&lt;0.01%</td><td>Autosomal</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-brain me-2"></i> <strong>Opponent Process Theory:</strong> L-M (red-green) and S-(L+M) (blue-yellow) channels in LGN and V1 cortex.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Visual Pathway from Retina to Cortex -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-project-diagram me-2"></i> 3. Central Visual Pathway</h3>
+                        <small>Retina → LGN → Primary Visual Cortex (V1)</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="bg-dark text-white p-3 rounded-3 text-center" style="background: #1a1a2e;">
+                                    <i class="fas fa-eye fa-2x me-3"></i> → <i class="fas fa-arrow-right fa-2x"></i> → 
+                                    <i class="fas fa-brain fa-2x ms-3"></i>
+                                    <p class="mt-2 small">Optic Nerve → Optic Chiasm (partial decussation) → Optic Tract → LGN → Optic Radiations → Visual Cortex (Area 17)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="border rounded-3 p-2">
+                                    <h6 class="fw-bold">Visual Field Defects</h6>
+                                    <ul class="small">
+                                        <li>Optic nerve lesion: Monocular blindness</li>
+                                        <li>Chiasmal lesion: Bitemporal hemianopia</li>
+                                        <li>Optic tract: Homonymous hemianopia</li>
+                                        <li>Meyer's loop: Superior quadrantanopia</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="bg-light p-2 rounded">
+                                    <strong>Parvocellular (P) Pathway:</strong> Color, fine detail, high acuity → V4 (color processing)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bg-light p-2 rounded">
+                                    <strong>Magnocellular (M) Pathway:</strong> Motion, depth, low contrast → MT/V5 (motion processing)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 4: Accommodation & Near Reflex -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-focus me-2"></i> 4. Accommodation & Near Triad</h3>
+                        <small>Dynamic focusing mechanism of the crystalline lens</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="bg-light p-3 rounded-3 h-100">
+                                    <h5>Near Reflex Components</h5>
+                                    <ul>
+                                        <li><i class="fas fa-eye text-primary me-2"></i> <strong>Accommodation:</strong> Ciliary muscle contraction → lens becomes more convex (+power)</li>
+                                        <li><i class="fas fa-circle-dot text-primary me-2"></i> <strong>Convergence:</strong> Medial recti contract → eyes adduct</li>
+                                        <li><i class="fas fa-moon text-primary me-2"></i> <strong>Miosis:</strong> Pupillary sphincter contracts → pupil constricts (increases depth of field)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="formula-box">
+                                    <strong>Accommodative Amplitude (Hofstetter's Formula):</strong><br>
+                                    Minimum Amplitude (D) = 18 - 0.33 × age<br>
+                                    Example: Age 40 → 18 - 13.2 = 4.8 D<br>
+                                    <span class="text-muted small">Presbyopia occurs when amplitude &lt; 3-4 D</span>
+                                </div>
+                                <div class="progress mt-3" style="height: 25px;">
+                                    <div class="progress-bar bg-primary" style="width: 70%">Age 20: ~10D</div>
+                                    <div class="progress-bar bg-info" style="width: 38%">Age 45: ~4D</div>
+                                    <div class="progress-bar bg-secondary" style="width: 10%">Age 70: ~1D</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 5: Retinal Ganglion Cell Types -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-charging-station me-2"></i> 5. Retinal Ganglion Cell (RGC) Types & Function</h3>
+                        <small>Output neurons of the retina projecting to the brain</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr><th>RGC Type</th><th>Size</th><th>Receptive Field</th><th>Function</th><th>Projection Target</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Parasol (M-type)</td><td>Large</td><td>Large, transient</td><td>Motion, low contrast</td><td>Magnocellular LGN</td></tr>
+                                    <tr><td>Midget (P-type)</td><td>Small</td><td>Small, sustained</td><td>Color, fine detail</td><td>Parvocellular LGN</td></tr>
+                                    <tr><td>Bistratified</td><td>Medium</td><td>Medium</td><td>Blue-ON/yellow-OFF</td><td>Koniocellular LGN</td></tr>
+                                    <tr><td>ipRGC (melanopsin)</td><td>Large</td><td>Large</td><td>Circadian rhythm, pupillary light reflex</td><td>Suprachiasmatic nucleus, pretectum</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 6: Pupillary Light Reflex Pathway -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-lightbulb me-2"></i> 6. Pupillary Light Reflex (PLR)</h3>
+                        <small>Autonomic control of pupil size in response to light</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="bg-light p-3 rounded-3 h-100">
+                                    <h5>Afferent Pathway</h5>
+                                    <p>Light → Retina (photoreceptors, bipolar, RGC) → Optic nerve → Optic chiasm (partial decussation) → Pretectal nucleus (midbrain)</p>
+                                    <h5 class="mt-3">Efferent Pathway</h5>
+                                    <p>Pretectal nucleus → Bilateral Edinger-Westphal nuclei → CN III (oculomotor) → Ciliary ganglion → Short ciliary nerves → Sphincter pupillae (constriction)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="border rounded-3 p-3">
+                                    <h5>Clinical Reflex Testing</h5>
+                                    <ul>
+                                        <li><strong>Direct reflex:</strong> Illuminated eye constricts</li>
+                                        <li><strong>Consensual reflex:</strong> Non-illuminated eye also constricts</li>
+                                        <li><strong>Swinging flashlight test:</strong> Detects relative afferent pupillary defect (RAPD / Marcus Gunn pupil)</li>
+                                    </ul>
+                                    <div class="alert alert-warning small mt-2">
+                                        <i class="fas fa-stethoscope me-1"></i> RAPD indicates optic nerve disease (e.g., optic neuritis, glaucoma) or severe retinal disease.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 7: Visual Cycle (Rhodopsin Regeneration) -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-sync-alt me-2"></i> 7. Visual Cycle (Retinoid Cycle)</h3>
+                        <small>Regeneration of 11-cis-retinal in the RPE</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="bg-light p-3 rounded-3">
+                                    <ol>
+                                        <li>11-cis-retinal + opsin → Rhodopsin (in photoreceptor outer segment)</li>
+                                        <li>Light → all-trans-retinal + opsin</li>
+                                        <li>All-trans-retinol transported to RPE</li>
+                                        <li>Isomerization via RPE65 → 11-cis-retinol</li>
+                                        <li>Oxidation to 11-cis-retinal → returns to photoreceptor</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="formula-box">
+                                    <strong>Key Enzymes:</strong><br>
+                                    • RPE65 (isomerase)<br>
+                                    • Lecithin retinol acyltransferase (LRAT)<br>
+                                    • Retinal dehydrogenase<br>
+                                    <strong>Deficiency:</strong> Vitamin A deficiency → night blindness (nyctalopia)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 8: Light & Dark Adaptation Curves -->
+                <div class="physio-card card mb-5">
+                    <div class="chart-header">
+                        <h3 class="fw-bold mb-0"><i class="fas fa-chart-line me-2"></i> 8. Dark Adaptation Curve</h3>
+                        <small>Sensitivity recovery after bright light exposure</small>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="bg-white border rounded-3 p-2 text-center">
+                                    <svg viewBox="0 0 600 200" style="width:100%; height:auto; background:#f8f9fa; border-radius:8px;">
+                                        <polyline points="30,170 100,160 180,140 250,100 350,60 450,40 550,30" stroke="#0d6efd" stroke-width="2" fill="none"/>
+                                        <polyline points="30,170 100,168 180,165 250,155 350,120 450,80 550,55" stroke="#dc3545" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                                        <text x="50" y="30" fill="#333" font-size="10">Log Threshold</text>
+                                        <text x="550" y="190" fill="#333" font-size="10">Time (min)</text>
+                                        <text x="400" y="50" fill="#0d6efd" font-size="9">Rods (scotopic)</text>
+                                        <text x="400" y="80" fill="#dc3545" font-size="9">Cones (photopic)</text>
+                                        <line x1="30" y1="170" x2="550" y2="170" stroke="#aaa" stroke-width="0.5"/>
+                                        <line x1="30" y1="30" x2="30" y2="170" stroke="#aaa" stroke-width="0.5"/>
+                                    </svg>
+                                    <p class="small text-muted mt-1">Rod-cone break at ~5-10 minutes. Full dark adaptation takes ~30-40 minutes.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="bg-light p-3 rounded-3">
+                                    <h6>Clinical Application</h6>
+                                    <p>Prolonged dark adaptation may indicate:<br>
+                                    • Vitamin A deficiency<br>
+                                    • Retinitis pigmentosa<br>
+                                    • Congenital stationary night blindness</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download & Navigation -->
+                <div class="text-center mt-4 no-print">
+                    <a href="physiology.html" class="btn btn-outline-primary px-4"><i class="fas fa-arrow-left me-2"></i> Back to Physiology</a>
+                    <a href="quizzes.html" class="btn btn-primary px-4 ms-2"><i class="fas fa-question-circle me-2"></i> Test Your Knowledge → Quizzes</a>
+                    <a href="chart.html" class="btn btn-outline-secondary px-4 ms-2"><i class="fas fa-chart-simple me-2"></i> Anatomy Charts</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers and optometrists.</p>
+                    <div class="social-icons mt-4"><a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-twitter"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in"></i></a></div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
+                    <ul class="list-unstyled text-md-center">
+                        <li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+                        <li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
+                        <li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Newsletter</h5>
+                    <p class="small text-secondary">Get the latest updates in optical engineering, research, and vision care advancements directly to your inbox.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address">
+                        <button class="btn btn-primary btn-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

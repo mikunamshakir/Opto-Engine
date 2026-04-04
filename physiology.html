@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physiology | Opto Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section for Physiology -->
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1615552440985-d652ebf4c199?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Functional Vision Physiology</h1>
+                <p class="lead text-white-50">Explore the dynamic processes of vision, from light perception to neural processing.</p>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="content-section py-5">
+            <div class="container">
+                <h2 class="fw-bold mb-5">How Vision Works: From Light to Perception</h2>
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-7">
+                        <p class="lead text-secondary">Physiology delves into the mechanisms of life. In vision, this means understanding how light energy is converted into electrical signals and interpreted by the brain.</p>
+                        <p>Our resources cover everything from the photochemical reactions in the retina to the complex neural pathways of the visual cortex. Gain insights into visual acuity, color perception, depth perception, and eye movements.</p>
+                        <ul class="list-unstyled mt-4">
+                            <li class="mb-2"><strong class="text-primary me-2"><i class="fas fa-chart-line"></i></strong> Phototransduction Explained</li>
+                            <li class="mb-2"><strong class="text-primary me-2"><i class="fas fa-brain"></i></strong> Visual Cortex Processing</li>
+                            <li class="mb-2"><strong class="text-primary me-2"><i class="fas fa-eye-dropper"></i></strong> Pupillary Light Reflex Mechanisms</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="https://answers.childrenshospital.org/wp-content/uploads/2011/02/engle-eye-2.png" class="img-fluid rounded shadow-lg" alt="Neural pathways of the brain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Physiological Processes Section -->
+        <section class="bg-light content-section py-5">
+            <div class="container">
+                <h2 class="fw-bold mb-5">Key Physiological Processes</h2>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm h-100 text-center">
+                            <div class="card-body">
+                                <div class="feature-icon mb-3"><i class="fas fa-lightbulb fa-2x text-primary"></i></div>
+                                <h3 class="h5 fw-bold text-primary">Phototransduction</h3>
+                                <p class="card-text text-muted small">The conversion of light into electrical signals by photoreceptor cells.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm h-100 text-center">
+                            <div class="card-body">
+                                <div class="feature-icon mb-3"><i class="fas fa-sliders-h fa-2x text-primary"></i></div>
+                                <h3 class="h5 fw-bold text-primary">Accommodation</h3>
+                                <p class="card-text text-muted small">The eye's ability to change optical power to maintain a clear image at varying distances.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm h-100 text-center">
+                            <div class="card-body">
+                                <div class="feature-icon mb-3"><i class="fas fa-arrows-alt-h fa-2x text-primary"></i></div>
+                                <h3 class="h5 fw-bold text-primary">Binocular Vision</h3>
+                                <p class="card-text text-muted small">How two eyes work together to create a single, three-dimensional perception of the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card shadow-sm h-100 text-center">
+                            <div class="card-body">
+                                <div class="feature-icon mb-3"><i class="fas fa-palette fa-2x text-primary"></i></div>
+                                <h3 class="h5 fw-bold text-primary">Color Perception</h3>
+                                <p class="card-text text-muted small">The mechanisms by which the eye and brain differentiate between various wavelengths of light.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a class="btn btn-primary btn-lg" href="physiology-charts.html">Explore Interactive Charts <i class="fas fa-chart-pie ms-2"></i></a> 
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers and optometrists.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
+                    <ul class="list-unstyled text-md-center">
+                        <li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+                        <li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
+                        <li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Newsletter</h5>
+                    <p class="small text-secondary">Get the latest updates in optical engineering, research, and vision care advancements directly to your inbox.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address" aria-label="Email address">
+                        <button class="btn btn-primary btn-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

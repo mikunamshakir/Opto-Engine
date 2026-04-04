@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy Charts | Ocular Structures Reference | Opto Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .chart-card {
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .chart-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        .section-badge {
+            background: rgba(13,110,253,0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        .table-anatomy th {
+            background-color: #f0f4f8;
+            font-weight: 600;
+        }
+        .diagram-placeholder {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .print-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        @media print {
+            .navbar, footer, .btn, .no-print { display: none; }
+            body { padding-top: 0; }
+            .chart-card { box-shadow: none; border: 1px solid #ddd; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1532187860785-2ae66124e228?q=80&w=1470&auto=format&fit=crop');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Ocular Anatomy Charts</h1>
+                <p class="lead text-white-50">Comprehensive visual references, tables, and detailed diagrams of the human eye — from external structures to neural pathways.</p>
+                <button onclick="window.print();" class="btn btn-light mt-3 no-print"><i class="fas fa-print me-2"></i> Download / Print Charts</button>
+            </div>
+        </section>
+
+        <!-- Main Charts Content -->
+        <section class="content-section py-5">
+            <div class="container">
+                <!-- Chart 1: Overview Diagram -->
+                <div class="chart-card card mb-5">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+                            <h2 class="fw-bold mb-0"><i class="fas fa-eye text-primary me-2"></i> 1. Cross-Sectional Anatomy of the Eye</h2>
+                            <span class="section-badge"><i class="fas fa-chart-simple me-1"></i> Reference Chart</span>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-7">
+                                <div class="diagram-placeholder">
+                                    <img src="https://www.researchgate.net/profile/Ibrahim-Sadek/publication/301839763/figure/fig2/AS:360959924293639@1463070960625/Cross-section-of-a-human-eye-anatomy.png" class="img-fluid rounded" alt="Eye Anatomy Diagram" style="max-height: 400px; width: auto;">
+                                    <p class="small text-muted mt-2">Schematic cross-section of the human eye (Public Domain / Wikimedia)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="bg-light p-3 rounded-3 h-100">
+                                    <h5 class="fw-bold">Key External & Internal Landmarks</h5>
+                                    <ul class="mt-3">
+                                        <li><strong>Sclera</strong> - White fibrous outer layer</li>
+                                        <li><strong>Cornea</strong> - Transparent anterior window</li>
+                                        <li><strong>Iris</strong> - Colored diaphragm controlling light</li>
+                                        <li><strong>Lens</strong> - Crystalline focusing element</li>
+                                        <li><strong>Ciliary Body</strong> - Produces aqueous humor, controls lens shape</li>
+                                        <li><strong>Retina</strong> - Neurosensory layer containing photoreceptors</li>
+                                        <li><strong>Choroid</strong> - Vascular layer supplying nutrients</li>
+                                        <li><strong>Optic Disc</strong> - Exit point of optic nerve (blind spot)</li>
+                                        <li><strong>Macula & Fovea</strong> - Central high-acuity vision zone</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Detailed Layers of the Eye (Table) -->
+                <div class="chart-card card mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-4"><i class="fas fa-layer-group text-primary me-2"></i> 2. Structural Layers & Tunics of the Eyeball</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-anatomy">
+                                <thead>
+                                    <tr class="bg-light">
+                                        <th>Layer / Tunic</th><th>Components</th><th>Primary Function</th><th>Clinical Relevance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Fibrous Tunic</strong></td><td>Cornea, Sclera</td><td>Protection, shape maintenance, refraction</td><td>Keratoconus, scleritis, corneal ulcers</td></tr>
+                                    <tr><td><strong>Vascular Tunic (Uvea)</strong></td><td>Choroid, Ciliary Body, Iris</td><td>Blood supply, accommodation, light regulation</td><td>Uveitis, iris melanoma, glaucoma</td></tr>
+                                    <tr><td><strong>Neural Tunic (Retina)</strong></td><td>Photoreceptors (Rods/Cones), Bipolar cells, Ganglion cells</td><td>Phototransduction, signal processing to brain</td><td>AMD, diabetic retinopathy, retinal detachment</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Refractive Structures & Optical Power -->
+                <div class="chart-card card mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-3"><i class="fas fa-chart-line text-primary me-2"></i> 3. Optical Components & Refractive Power</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="bg-white border rounded-3 p-3 h-100">
+                                    <h5 class="fw-bold text-primary">Refractive Indices & Power Contribution</h5>
+                                    <table class="table table-sm mt-3">
+                                        <thead><tr><th>Structure</th><th>Refractive Index</th><th>Dioptric Power (D)</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Cornea (air-tear interface)</td><td>1.376</td><td>+43 D</td></tr>
+                                            <tr><td>Aqueous Humor</td><td>1.336</td><td>–</td></tr>
+                                            <tr><td>Crystalline Lens</td><td>1.386 - 1.406</td><td>+15 to +20 D (accommodated)</td></tr>
+                                            <tr><td>Vitreous Humor</td><td>1.336</td><td>–</td></tr>
+                                            <tr><td><strong>Total Eye (Emmetropic)</strong></td><td>–</td><td><strong>+58 - +60 D</strong></td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="bg-white border rounded-3 p-3 h-100">
+                                    <h5 class="fw-bold text-primary">Accommodation Amplitude by Age</h5>
+                                    <ul class="mt-2">
+                                        <li>Age 10: ~14 D</li><li>Age 20: ~10 D</li><li>Age 30: ~7.5 D</li>
+                                        <li>Age 40: ~5.5 D</li><li>Age 50: ~2.5 D</li><li>Age 60+: ~1 D</li>
+                                    </ul>
+                                    <p class="small text-muted mt-2">Presbyopia occurs when accommodative amplitude falls below ~3-4 D.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 4: Retinal Cell Types & Distribution -->
+                <div class="chart-card card mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-4"><i class="fas fa-chart-pie text-primary me-2"></i> 4. Retinal Cell Distribution & Function</h2>
+                        <div class="row">
+                            <div class="col-lg-5 mb-3">
+                                <div class="bg-light p-3 rounded-3">
+                                    <h5>Photoreceptor Counts</h5>
+                                    <p><strong>Rods:</strong> ~120 million — Scotopic vision (low light, peripheral)<br>
+                                    <strong>Cones:</strong> ~6 million — Photopic vision (color, high acuity)<br>
+                                    <strong>Ratio:</strong> ~20:1 (Rods:Cones)</p>
+                                    <div class="progress mb-2"><div class="progress-bar bg-primary" style="width: 95%">Rods 95%</div></div>
+                                    <div class="progress"><div class="progress-bar bg-success" style="width: 5%">Cones 5%</div></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="border rounded-3 p-3">
+                                    <h5>Distribution Map</h5>
+                                    <p><i class="fas fa-circle text-warning me-1"></i> <strong>Fovea:</strong> Only cones (approx. 200,000 cones/mm²) — highest visual acuity.<br>
+                                    <i class="fas fa-circle text-secondary me-1"></i> <strong>Peripheral Retina:</strong> Dominated by rods, sensitive to motion and dim light.<br>
+                                    <i class="fas fa-circle text-info me-1"></i> <strong>Optic Disc:</strong> No photoreceptors — physiological blind spot.</p>
+                                    <div class="alert alert-primary mt-2 small">Color vision: Three cone types (S, M, L) peak sensitivities at 420nm, 530nm, 560nm.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 5: Extraocular Muscles & Innervation -->
+                <div class="chart-card card mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-4"><i class="fas fa-dumbbell text-primary me-2"></i> 5. Extraocular Muscles (EOM) & Cranial Nerve Supply</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead><tr><th>Muscle</th><th>Primary Action</th><th>Secondary Action</th><th>Cranial Nerve</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Medial Rectus</td><td>Adduction</td><td>None</td><td>CN III (Oculomotor)</td></tr>
+                                    <tr><td>Lateral Rectus</td><td>Abduction</td><td>None</td><td>CN VI (Abducens)</td></tr>
+                                    <tr><td>Superior Rectus</td><td>Elevation</td><td>Intorsion, Adduction</td><td>CN III</td></tr>
+                                    <tr><td>Inferior Rectus</td><td>Depression</td><td>Extorsion, Adduction</td><td>CN III</td></tr>
+                                    <tr><td>Superior Oblique</td><td>Intorsion</td><td>Depression, Abduction</td><td>CN IV (Trochlear)</td></tr>
+                                    <tr><td>Inferior Oblique</td><td>Extorsion</td><td>Elevation, Abduction</td><td>CN III</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 6: Blood Supply -->
+                <div class="chart-card card">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-3"><i class="fas fa-heartbeat text-primary me-2"></i> 6. Ocular Blood Supply & Venous Drainage</h2>
+                        <div class="row">
+                            <div class="col-md-6"><h5>Arterial Supply</h5><ul><li>Ophthalmic artery (branch of Internal Carotid)</li><li>Central retinal artery → supplies inner retina</li><li>Ciliary arteries (short & long) → choroid, ciliary body, iris</li></ul></div>
+                            <div class="col-md-6"><h5>Venous Drainage</h5><ul><li>Central retinal vein</li><li>Vortex veins (4-5) → drain choroid</li><li>Cavernous sinus (final drainage pathway)</li></ul></div>
+                        </div>
+                        <div class="alert alert-warning small mt-2"><i class="fas fa-exclamation-triangle me-1"></i> Clinical pearl: Branch retinal artery occlusion (BRAO) vs. Central retinal vein occlusion (CRVO).</div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5 no-print">
+                    <a href="anatomy.html" class="btn btn-outline-primary px-4"><i class="fas fa-arrow-left me-2"></i> Back to Anatomy</a>
+                    <a href="quizzes.html" class="btn btn-primary px-4 ms-2"><i class="fas fa-question-circle me-2"></i> Test Your Knowledge → Quizzes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4"><h5 class="fw-bold text-white">Opto Engine</h5><p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research.</p><div class="social-icons mt-4"><a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-twitter"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in"></i></a></div></div>
+                <div class="col-md-4"><h5 class="fw-bold text-white text-md-center">Quick Links</h5><ul class="list-unstyled text-md-center"><li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li><li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li><li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact</a></li></ul></div>
+                <div class="col-md-4"><h5 class="fw-bold text-white">Newsletter</h5><div class="input-group"><input type="email" class="form-control form-control-sm" placeholder="Email address"><button class="btn btn-primary btn-sm">Join</button></div></div>
+            </div>
+            <hr class="mt-5 border-secondary"><div class="text-center"><p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

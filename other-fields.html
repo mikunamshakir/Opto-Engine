@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Fields of Optometry | Comprehensive Guide | Opto Engine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .wco-definition {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(13,110,253,0.2);
+        }
+        .wco-definition h2, .wco-definition h3 { color: white; }
+        .wco-definition h2::after { background: white !important; }
+        .field-card {
+            border: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        .field-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .field-header {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .competency-badge {
+            background: rgba(13,110,253,0.1);
+            color: #0d6efd;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .domain-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+        }
+        .domain-card:hover { background: #e9ecef; }
+        .subspecialty-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .subspecialty-list li:before {
+            content: "▹";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+        .stats-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        @media print {
+            .navbar, footer, .btn, .no-print { display: none; }
+            body { padding-top: 0; }
+            .field-card { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1470&auto=format&fit=crop');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">All Fields of Optometry</h1>
+                <p class="lead text-white-50">A comprehensive guide to optometric specialties, practice areas, and the global definition of the profession according to the World Council of Optometry</p>
+                <button onclick="window.print();" class="btn btn-light mt-3 no-print"><i class="fas fa-print me-2"></i> Save as PDF</button>
+            </div>
+        </section>
+
+        <section class="content-section py-5">
+            <div class="container">
+                <!-- WCO Official Definition -->
+                <div class="wco-definition">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-globe-americas fa-3x me-3"></i>
+                        <h2 class="fw-bold mb-0">WCO Concept of Optometry</h2>
+                    </div>
+                    <p class="lead fw-bold mb-3">"Optometry is a healthcare profession that is autonomous, educated, and regulated (licensed/registered), and optometrists are the primary healthcare practitioners of the eye and visual system who provide comprehensive eye and vision care, which includes refraction and dispensing, detection/diagnosis and management of disease in the eye, and the rehabilitation of conditions of the visual system."</p>
+                    <p class="mb-0">— World Council of Optometry [citation:1][citation:6]</p>
+                    <hr class="bg-white opacity-25 my-3">
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <i class="fas fa-graduation-cap me-2"></i> <strong>Autonomous</strong>
+                            <p class="small mb-0 opacity-75">Independent primary care practitioners</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-certificate me-2"></i> <strong>Educated</strong>
+                            <p class="small mb-0 opacity-75">Bachelor's degree or higher from tertiary institution</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fas fa-gavel me-2"></i> <strong>Regulated</strong>
+                            <p class="small mb-0 opacity-75">Licensed/registered by government authority</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row text-center mb-5 g-4">
+                    <div class="col-md-3 col-6">
+                        <div class="stats-number">275+</div>
+                        <p class="text-muted small">Systemic conditions with ocular involvement [citation:2]</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-number">120M</div>
+                        <p class="text-muted small">Rods in human retina</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-number">6M</div>
+                        <p class="text-muted small">Cones in human retina</p>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stats-number">60D</div>
+                        <p class="text-muted small">Total refractive power of eye</p>
+                    </div>
+                </div>
+
+                <!-- WCO Competency Framework - 5 Domains -->
+                <h2 class="fw-bold mb-4"><i class="fas fa-chalkboard-user text-primary me-2"></i> WCO Competency Framework for Optometry</h2>
+                <p class="lead text-muted mb-4">In 2024, the World Council of Optometry released its new Competency Framework, replacing the previous 4-level model with 5 comprehensive competency domains that define entry-level optometric practice worldwide. [citation:10]</p>
+                
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="domain-card h-100">
+                            <i class="fas fa-glasses fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-bold">Domain 1: Refractive Error</h5>
+                            <p class="small text-muted">Assessment and management of refractive conditions including myopia, hyperopia, astigmatism, and presbyopia. Prescribing optical corrections and managing progressive conditions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="domain-card h-100">
+                            <i class="fas fa-eye fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-bold">Domain 2: Visual Function Assessment</h5>
+                            <p class="small text-muted">Evaluation of binocular vision, accommodation, ocular motility, color vision, contrast sensitivity, and visual field function.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="domain-card h-100">
+                            <i class="fas fa-stethoscope fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-bold">Domain 3: Ocular Health & Disease</h5>
+                            <p class="small text-muted">Detection, diagnosis, and management of eye diseases including glaucoma, diabetic retinopathy, macular degeneration, cataracts, and ocular infections.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="domain-card h-100">
+                            <i class="fas fa-chart-line fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-bold">Domain 4: Public Health</h5>
+                            <p class="small text-muted">Population-based eye care, disease prevention, health promotion, and addressing vision impairment as a public health priority aligned with WHO initiatives.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="domain-card h-100">
+                            <i class="fas fa-briefcase fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-bold">Domain 5: Professional Practice</h5>
+                            <p class="small text-muted">Ethics, communication, interprofessional collaboration, evidence-based practice, and continuous professional development.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comprehensive Fields of Optometry -->
+                <h2 class="fw-bold mb-4 mt-4"><i class="fas fa-chart-simple text-primary me-2"></i> All Fields & Specialties of Optometry</h2>
+                <p class="text-muted mb-5">Optometrists practice in diverse settings including private practice, hospitals, community health centers, academia, research, and industry. Below is a comprehensive list of all optometric fields and subspecialties.</p>
+
+                <!-- Row 1: Primary & Core Fields -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="field-card card">
+                            <div class="field-header">
+                                <i class="fas fa-stethoscope fa-2x text-primary mb-2"></i>
+                                <h4 class="fw-bold mb-0">Primary Care Optometry</h4>
+                                <span class="competency-badge mt-2">Core Practice</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Primary care optometry is the comprehensive management of a patient's visual function, ocular health, and related health care. The primary care optometrist assumes ongoing responsibility for the total visual, ocular, and related care of the patient. [citation:7]</p>
+                                <p><strong>Scope includes:</strong> Routine eye exams, refractive error management, diagnosis of common eye conditions, prescribing corrective lenses, co-management with other healthcare providers, and patient education.</p>
+                                <p><strong>Practice settings:</strong> Private practice, community health centers, retail optical settings, HMOs, and military facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="field-card card">
+                            <div class="field-header">
+                                <i class="fas fa-hospital-user fa-2x text-primary mb-2"></i>
+                                <h4 class="fw-bold mb-0">Ocular Disease / Medical Optometry</h4>
+                                <span class="competency-badge mt-2">Advanced Practice</span>
+                            </div>
+                            <div class="card-body">
+                                <p>Medical optometry focuses on the diagnosis, treatment, and management of eye diseases and systemic conditions affecting the visual system. Optometrists prescribe medications, perform minor procedures, and manage chronic ocular conditions.</p>
+                                <p><strong>Conditions managed:</strong> Glaucoma, diabetic retinopathy, age-related macular degeneration (AMD), uveitis, keratitis, dry eye syndrome, and hypertensive retinopathy.</p>
+                                <p><strong>Key fact:</strong> There are over 275 systemic conditions with potential ocular involvement. [citation:2]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: Specialty Fields -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-child fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Pediatric Optometry</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Specialized care for infants and children's vision development. Includes amblyopia (lazy eye) treatment, strabismus management, myopia control, and developmental vision assessment.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Amblyopia therapy</li>
+                                    <li>Strabismus evaluation</li>
+                                    <li>Myopia management</li>
+                                    <li>Pediatric contact lens fitting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-low-vision fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Low Vision Rehabilitation</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Maximizing remaining vision in patients with visual impairment that cannot be fully corrected by standard means. Focus on functional independence and quality of life.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Prescribing optical/electronic magnifiers</li>
+                                    <li>Eccentric viewing training</li>
+                                    <li>Lighting and contrast enhancement</li>
+                                    <li>Assistive technology consultation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-brain fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Vision Therapy & Rehabilitation</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Neuro-optometric rehabilitation for binocular vision disorders, accommodative dysfunction, and visual processing issues. Also serves patients with traumatic brain injury and stroke.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Binocular vision therapy</li>
+                                    <li>Convergence insufficiency treatment</li>
+                                    <li>Brain injury vision rehabilitation</li>
+                                    <li>Sports vision training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Contact Lens & Cornea -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-circle-dot fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Cornea & Contact Lenses</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Specialized fitting of contact lenses for regular and irregular corneas, including specialty lenses for keratoconus, post-surgical corneas, and orthokeratology for myopia control.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Scleral lens fitting</li>
+                                    <li>Orthokeratology</li>
+                                    <li>Keratoconus management</li>
+                                    <li>Post-refractive surgery fitting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-eye-dropper fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Geriatric Optometry</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Specialized eye care for aging populations, addressing age-related vision changes and conditions common in older adults.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Age-related macular degeneration (AMD)</li>
+                                    <li>Cataract evaluation and co-management</li>
+                                    <li>Glaucoma management</li>
+                                    <li>Falls prevention through vision assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-bullseye fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Sports & Performance Vision</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Enhancing visual performance for athletes and professionals. Includes contrast sensitivity training, eye-hand coordination, and specialized eyewear for sports.</p>
+                                <ul class="subspecialty-list small mt-2 ps-0">
+                                    <li>Dynamic visual acuity training</li>
+                                    <li>Sports-specific eyewear</li>
+                                    <li>Reaction time enhancement</li>
+                                    <li>Depth perception optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 4: Special Populations -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-wheelchair fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Vision Rehabilitation for Special Needs</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Optometric care for individuals with developmental disabilities, neurological conditions, and complex medical needs requiring specialized assessment approaches.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-building fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Occupational Optometry</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Workplace vision assessment and protection, including computer vision syndrome management, industrial vision screening, and safety eyewear consultation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="field-card card h-100">
+                            <div class="field-header">
+                                <i class="fas fa-chalkboard fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Academic Optometry / Education</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Teaching and training future optometrists in academic institutions, curriculum development, clinical instruction, and educational research.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research & Public Health Section -->
+                <h2 class="fw-bold mb-4 mt-5"><i class="fas fa-flask text-primary me-2"></i> Research & Population Health Fields</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="field-card card">
+                            <div class="field-header">
+                                <i class="fas fa-microscope fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Ophthalmic & Vision Science Research</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Advancing knowledge in optical science, visual neuroscience, ocular pharmacology, and clinical trials for new treatments and technologies.</p>
+                                <p><strong>Research areas:</strong> Myopia control interventions, glaucoma diagnostics, retinal imaging technology, contact lens materials, and artificial intelligence in eye care.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="field-card card">
+                            <div class="field-header">
+                                <i class="fas fa-chart-pie fa-2x text-primary mb-2"></i>
+                                <h5 class="fw-bold mb-0">Public Health Optometry</h5>
+                            </div>
+                            <div class="card-body">
+                                <p>Population-level eye health initiatives, disease prevention programs, health policy development, and addressing global vision impairment as a public health priority aligned with WHO's World Report on Vision. [citation:10]</p>
+                                <p><strong>Key initiatives:</strong> School vision screening programs, community outreach, uncorrected refractive error elimination, and diabetic eye disease prevention campaigns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Settings -->
+                <div class="mt-5 p-4 bg-light rounded-4">
+                    <h3 class="fw-bold mb-3"><i class="fas fa-building text-primary me-2"></i> Practice Settings for Optometrists</h3>
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Private practice (solo/group)</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Hospital-based practice</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Accountable Care Organizations</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Federally Qualified Health Centers</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> School-based health centers</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Rural Health Clinics</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Nursing/Rehabilitation facilities</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> U.S. Armed Forces / VA</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Indian Health Service</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <ul class="list-unstyled small">
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Academia / Research institutions</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Industry / Corporate optometry</li>
+                                <li><i class="fas fa-check-circle text-primary me-1"></i> Tele-optometry platforms</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="small text-muted mt-3 mb-0">Source: Association of Schools and Colleges of Optometry IPECP Toolkit [citation:2]</p>
+                </div>
+
+                <!-- Educational Pathway -->
+                <div class="mt-5">
+                    <h3 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i> Educational Pathway to Optometry</h3>
+                    <div class="row g-3">
+                        <div class="col-md-3 text-center">
+                            <div class="bg-secondary bg-opacity-10 rounded-3 p-3">
+                                <i class="fas fa-university fa-2x text-primary mb-2"></i>
+                                <h6>Bachelor's Degree</h6>
+                                <p class="small text-muted mb-0">4 years (undergraduate pre-optometry)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="bg-secondary bg-opacity-10 rounded-3 p-3">
+                                <i class="fas fa-stethoscope fa-2x text-primary mb-2"></i>
+                                <h6>Optometry School</h6>
+                                <p class="small text-muted mb-0">4 years (Doctor of Optometry - OD)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="bg-secondary bg-opacity-10 rounded-3 p-3">
+                                <i class="fas fa-microscope fa-2x text-primary mb-2"></i>
+                                <h6>Residency (Optional)</h6>
+                                <p class="small text-muted mb-0">1-2 years in specialty area</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="bg-secondary bg-opacity-10 rounded-3 p-3">
+                                <i class="fas fa-certificate fa-2x text-primary mb-2"></i>
+                                <h6>Licensure & Board Certification</h6>
+                                <p class="small text-muted mb-0">National & state board exams</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="text-center mt-5 no-print">
+                    <a href="quizzes.html" class="btn btn-primary px-4 ms-2"><i class="fas fa-question-circle me-2"></i> Test Your Knowledge → Quizzes</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers and optometrists.</p>
+                    <div class="social-icons mt-4"><a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-twitter"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in"></i></a></div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
+                    <ul class="list-unstyled text-md-center">
+                        <li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+                        <li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
+                        <li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Newsletter</h5>
+                    <p class="small text-secondary">Get the latest updates in optical engineering, research, and vision care advancements directly to your inbox.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address">
+                        <button class="btn btn-primary btn-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

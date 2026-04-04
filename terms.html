@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Opto Engine</title>
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .terms-content h2 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+        .terms-content h3 {
+            font-size: 1.35rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #1a1d20;
+        }
+        .terms-content p, .terms-content li {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+        .terms-content ul, .terms-content ol {
+            margin-bottom: 1.25rem;
+        }
+        .last-updated {
+            background: #e9ecef;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+        .card-terms {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=1470&auto=format&fit=crop');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Terms of Service</h1>
+                <p class="lead text-white-50">Understanding the rules, responsibilities, and legal framework governing your use of Opto Engine.</p>
+                <div class="last-updated mt-3 bg-white text-dark"><i class="fas fa-calendar-alt me-2"></i> Last Updated: April 4, 2026</div>
+            </div>
+        </section>
+
+        <!-- Terms Content Section -->
+        <section class="content-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card card-terms p-4 p-lg-5 bg-white">
+                            <div class="terms-content">
+                                <div class="alert alert-primary border-0 rounded-4 mb-5">
+                                    <i class="fas fa-gavel me-2"></i> By accessing or using Opto Engine's website, research database, and related services, you agree to be bound by these Terms of Service. If you do not agree, please refrain from using our platform.
+                                </div>
+
+                                <h2>1. Acceptance of Terms</h2>
+                                <p>Opto Engine ("Company", "we", "us", or "our") provides an online platform for optical science research, educational resources, professional networking, and related content. These Terms of Service ("Terms") constitute a legally binding agreement between you and Opto Engine. By registering, accessing, or using our website (optoengine.com) and any subdomains, you acknowledge that you have read, understood, and agree to be bound by these Terms, including any future amendments.</p>
+
+                                <h2>2. Eligibility & Account Registration</h2>
+                                <p>You must be at least 18 years old to create an account or use certain features of the Service. By using Opto Engine, you represent and warrant that you have the full right, power, and authority to enter into this agreement. When registering, you agree to provide accurate, current, and complete information. You are solely responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. Notify us immediately of any unauthorized use.</p>
+                                
+                                <h3>2.1 Professional Use Disclaimer</h3>
+                                <p>Opto Engine provides educational and research materials but does not replace professional medical advice, diagnosis, or treatment. Always seek the advice of a qualified eye care provider with any questions regarding a medical condition.</p>
+
+                                <h2>3. Intellectual Property Rights</h2>
+                                <p>All content on Opto Engine — including but not limited to text, graphics, logos, images, research papers, data compilations, code, and software — is the property of Opto Engine or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws. The Opto Engine name and logo are registered trademarks. You may not reproduce, distribute, modify, create derivative works of, publicly display, or commercially exploit any content without prior written permission from Opto Engine.</p>
+                                
+                                <h3>3.1 Limited License</h3>
+                                <p>We grant you a non-exclusive, non-transferable, revocable license to access and use the website for personal, educational, or internal research purposes, provided you comply with these Terms. Downloading or printing individual pages for non-commercial reference is permitted as long as all copyright notices remain intact.</p>
+
+                                <h2>4. User-Generated Content & Conduct</h2>
+                                <p>Opto Engine may allow users to post comments, upload research summaries, participate in forums, or submit feedback. You retain ownership of any content you submit, but by posting, you grant Opto Engine a worldwide, royalty-free, perpetual, irrevocable license to use, modify, reproduce, and display such content in connection with our services.</p>
+                                <p><strong>Prohibited conduct includes:</strong></p>
+                                <ul>
+                                    <li>Posting false, misleading, or defamatory information.</li>
+                                    <li>Uploading malware, viruses, or harmful code.</li>
+                                    <li>Infringing on third-party intellectual property or privacy rights.</li>
+                                    <li>Harassing, abusing, or threatening other users.</li>
+                                    <li>Attempting to gain unauthorized access to our systems.</li>
+                                </ul>
+
+                                <h2>5. Research Data & Accuracy</h2>
+                                <p>Opto Engine curates research articles, clinical guidelines, and technical data from reputable sources, but we do not guarantee the absolute accuracy, completeness, or timeliness of any information. Research findings evolve; therefore, content may become outdated. We encourage users to verify critical information with primary sources or peer-reviewed literature. Under no circumstances shall Opto Engine be liable for decisions made based on information provided on the platform.</p>
+
+                                <h2>6. Third-Party Links & Integrations</h2>
+                                <p>Our website may contain links to external websites, plugins, or applications operated by third parties (e.g., Google Custom Search, Unsplash images, or citation databases). We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites. Your interactions with such third parties are solely between you and them.</p>
+
+                                <h2>7. Privacy & Data Collection</h2>
+                                <p>Your use of Opto Engine is also governed by our <a href="privacy.html" class="text-primary">Privacy Policy</a>, which explains how we collect, use, and protect your personal information. By using the Service, you consent to the data practices described in the Privacy Policy, including the use of cookies and analytics tools (such as Google Analytics and Vercel Web Analytics).</p>
+
+                                <h2>8. Disclaimer of Warranties</h2>
+                                <p>THE SERVICE AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. OPTO ENGINE DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE OF VIRUSES.</p>
+
+                                <h2>9. Limitation of Liability</h2>
+                                <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL OPTO ENGINE, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID US (IF ANY) IN THE PAST SIX MONTHS.</p>
+
+                                <h2>10. Indemnification</h2>
+                                <p>You agree to defend, indemnify, and hold harmless Opto Engine and its employees, contractors, and agents from any claims, damages, losses, liabilities, costs, or expenses (including reasonable attorneys' fees) arising out of your violation of these Terms, your misuse of the Service, or your infringement of any third-party rights.</p>
+
+                                <h2>11. Termination</h2>
+                                <p>We reserve the right to suspend or terminate your access to Opto Engine at our sole discretion, without notice or liability, for any reason, including breach of these Terms. Upon termination, your right to use the Service will cease immediately. Provisions that by their nature should survive termination (including intellectual property, disclaimer, limitation of liability, and governing law) shall remain in effect.</p>
+
+                                <h2>12. Modifications to Terms</h2>
+                                <p>Opto Engine may revise these Terms from time to time. The most current version will be posted on this page with the "Last Updated" date. Continued use of the Service after any changes constitutes acceptance of the revised Terms. It is your responsibility to review these Terms periodically.</p>
+
+                                <h2>13. Governing Law & Dispute Resolution</h2>
+                                <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of law principles. Any dispute arising from or relating to these Terms or the Service shall be resolved exclusively through binding arbitration in San Francisco County, California, in accordance with the rules of the American Arbitration Association. You agree to waive any right to participate in a class-action lawsuit or class-wide arbitration.</p>
+
+                                <h2>14. Entire Agreement & Severability</h2>
+                                <p>These Terms, together with the Privacy Policy, constitute the entire agreement between you and Opto Engine regarding your use of the Service. If any provision is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+                                <h2>15. Contact Information</h2>
+                                <p>If you have any questions about these Terms, please contact us at:</p>
+                                <p><i class="fas fa-envelope text-primary me-2"></i> <strong>legal@optoengine.com</strong><br>
+                                <i class="fas fa-map-pin text-primary me-2"></i> Opto Engine Legal Dept., 123 Optics Avenue, Suite 400, San Francisco, CA 94105</p>
+
+                                <hr class="my-5">
+                                <p class="text-muted small text-center">By continuing to use Opto Engine, you acknowledge that you have read, understood, and agreed to these Terms of Service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Banner -->
+        <section class="bg-primary text-white py-4 text-center">
+            <div class="container">
+                <p class="mb-0 fs-5">Have questions about our terms? <a href="contact.html" class="text-white fw-bold text-decoration-underline">Contact our legal team <i class="fas fa-arrow-right ms-1"></i></a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers and optometrists.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-secondary"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
+                    <ul class="list-unstyled text-md-center">
+                        <li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+                        <li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
+                        <li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Newsletter</h5>
+                    <p class="small text-secondary">Get the latest updates in optical engineering, research, and vision care advancements directly to your inbox.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email address" aria-label="Email address">
+                        <button class="btn btn-primary btn-sm">Join</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center">
+                <p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll for anchor links if any
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if(href !== "#" && href !== "#!" && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

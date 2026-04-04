@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Anatomy of the Eye | Opto Engine - Interactive 3D Model</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <!-- Three.js core library and add-ons -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+    <style>
+        /* Additional anatomy-specific styles */
+        .anatomy-diagram {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            border-radius: 24px;
+            padding: 1.5rem;
+        }
+        .part-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+        .part-card:hover {
+            transform: translateX(8px);
+            background-color: #f8f9fa;
+        }
+        .interactive-badge {
+            background: rgba(13,110,253,0.1);
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+        /* 3D Modal / Container Styles */
+        .model-container {
+            width: 100%;
+            height: 380px;
+            background: radial-gradient(circle at 30% 20%, #1a2a3a, #0a0f1a);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+            cursor: grab;
+            transition: transform 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .model-container:active {
+            cursor: grabbing;
+        }
+        .model-label {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            width: fit-content;
+            margin: 0 auto;
+            padding: 4px 12px;
+            border-radius: 30px;
+            pointer-events: none;
+            z-index: 10;
+            font-family: 'Inter', sans-serif;
+        }
+        .model-container canvas {
+            display: block;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        @media (max-width: 768px) {
+            .model-container { height: 280px; }
+        }
+        .interactive-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .interactive-video {
+            flex: 1.2;
+            min-width: 250px;
+        }
+        .interactive-model {
+            flex: 1;
+            min-width: 280px;
+        }
+        iframe {
+            border-radius: 20px;
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
+        <div class="container">
+          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
+          <a class="navbar-brand fw-bold text-primary" href="index.html">
+            <img
+              src="logo.png"
+              alt="Opto Engine Logo"
+              class="logo-img d-inline-block align-top"
+              style="
+                border-radius: 50%;
+                background: none;
+                font-weight: bold;
+                width: auto;
+                height: 50px;
+              "
+            />
+            <span>Opto Engine</span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Offcanvas Menu -->
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="research.html">Research</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Resources
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="physiology.html"
+                        >Physiology</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="primary-care-optometry.html"
+                        >Primary Care Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="occular-optometry.html"
+                        >Ocular/Medical Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="low-vision-optometry.html"
+                        >Low Vision Optometry</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="other-fields.html"
+                        >Other Fields</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="contact.html"
+                        >Contact Us</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=1470&auto=format&fit=crop');">
+            <div class="container text-center">
+                <h1 class="display-3 fw-bold text-white mb-4">Ocular Anatomy</h1>
+                <p class="lead text-white-50">A comprehensive exploration of the structural marvels of the human eye — from cornea to retina.</p>
+            </div>
+        </section>
+
+        <section class="content-section py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center mb-5">
+                    <div class="col-md-6">
+                        <h2 class="fw-bold mb-4">The Architecture of Vision</h2>
+                        <p class="lead text-secondary">The human eye is a masterpiece of biological engineering, containing over 2 million working parts and capable of distinguishing nearly 10 million different colors.</p>
+                        <p>Understanding ocular anatomy is fundamental for diagnosing diseases, designing optical instruments, and advancing vision science. Our interactive resources break down each component's function and clinical significance.</p>
+                        <div class="mt-4 d-flex gap-3 flex-wrap">
+                            <span class="interactive-badge"><i class="fas fa-3d me-1"></i> Interactive 3D Model</span>
+                            <span class="interactive-badge"><i class="fas fa-chalkboard-user me-1"></i> Clinical Correlations</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="anatomy-diagram shadow-sm">
+                            <img src="https://www.researchgate.net/profile/Ibrahim-Sadek/publication/301839763/figure/fig2/AS:360959924293639@1463070960625/Cross-section-of-a-human-eye-anatomy.png" class="img-fluid rounded-4" alt="Detailed diagram of eye anatomy" style="max-height: 300px; width: auto; margin: 0 auto; display: block;">
+                            <p class="text-muted small mt-3 text-center"><i class="fas fa-info-circle"></i> Cross-sectional anatomy of the human eye</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Row: Video + 3D Model (Responsive) -->
+                <div class="interactive-row mb-5">
+                    <div class="interactive-video">
+                        <div class="bg-light p-3 rounded-4 h-100">
+                            <h4 class="fw-bold mb-3"><i class="fas fa-play-circle text-primary me-2"></i> Educational Video</h4>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/qz62nt4AJPY?si=c07jSu8k8Hsp8wYI" title="Eye Anatomy Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 16px;"></iframe>
+                            <p class="small text-muted mt-2">Comprehensive walkthrough of ocular structures (Source: AnatomyZone)</p>
+                        </div>
+                    </div>
+                    <div class="interactive-model">
+                        <div class="bg-light p-3 rounded-4 h-100">
+                            <h4 class="fw-bold mb-3"><i class="fas fa-cube text-primary me-2"></i> Interactive 3D Eye Model</h4>
+                            <div id="eye3dContainer" class="model-container">
+                                <div class="model-label">🖱️ Drag to rotate | Scroll to zoom</div>
+                            </div>
+                            <p class="small text-muted mt-2 mt-md-3 mb-0">Fully interactive 3D model — touch and mouse compatible. Explore the globe of the eye from any angle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="fw-bold mb-4 mt-3">Key Anatomical Structures</h3>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-circle-notch fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Cornea</h4>
+                                </div>
+                                <p class="text-muted">The transparent front layer that provides 65-75% of the eye's focusing power. Critical for refraction and protection.</p>
+                                <small class="text-primary">Clinical: Keratoconus, corneal abrasions</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-tint fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Iris & Pupil</h4>
+                                </div>
+                                <p class="text-muted">Colored part controlling light entry. Pupil diameter ranges from 2-8 mm, regulating retinal illumination.</p>
+                                <small class="text-primary">Clinical: Anisocoria, iritis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-magnifying-glass fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Lens</h4>
+                                </div>
+                                <p class="text-muted">Crystalline structure that changes shape for accommodation (focusing on near/far objects).</p>
+                                <small class="text-primary">Clinical: Cataracts, presbyopia</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-chart-line fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Retina</h4>
+                                </div>
+                                <p class="text-muted">Light-sensitive layer containing ~120 million rods and 6 million cones. Converts light to neural signals.</p>
+                                <small class="text-primary">Clinical: AMD, retinal detachment</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-eye fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Macula & Fovea</h4>
+                                </div>
+                                <p class="text-muted">Central retina responsible for sharp, detailed central vision (20/20). Highest concentration of cones.</p>
+                                <small class="text-primary">Clinical: Macular degeneration</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card shadow-sm h-100 part-card border-0">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-microscope fa-2x text-primary me-3"></i>
+                                    <h4 class="h5 fw-bold mb-0">Optic Nerve</h4>
+                                </div>
+                                <p class="text-muted">Bundle of over 1 million nerve fibers transmitting visual info from retina to brain's visual cortex.</p>
+                                <small class="text-primary">Clinical: Glaucoma, optic neuritis</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5 pt-4 g-4 align-items-center bg-light p-4 rounded-4">
+                    <div class="col-md-12">
+                        <h4 class="fw-bold"><i class="fas fa-download me-2 text-primary"></i> Interactive Learning Tools</h4>
+                        <p>Access our 3D interactive eye model, downloadable anatomical charts, and self-assessment quizzes designed for students and professionals.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="quizzes.html" class="btn btn-outline-primary"><i class="fas fa-chalkboard-user me-2"></i> Take Quiz</a>
+                            <a href="chart.html" class="btn btn-primary"><i class="fas fa-download me-2"></i> Download Chart (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+                <div class="col-md-4">
+                    <h5 class="fw-bold text-white">Opto Engine</h5>
+                    <p class="small text-secondary">Advancing optical science through technology, collaboration, and open-access research for the next generation of engineers and optometrists.</p>
+                    <div class="social-icons mt-4"><a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-twitter"></i></a><a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in"></i></a><a href="#" class="text-secondary"><i class="fab fa-instagram"></i></a></div>
+                </div>
+                <div class="col-md-4"><h5 class="fw-bold text-white text-md-center">Quick Links</h5><ul class="list-unstyled text-md-center"><li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li><li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li><li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li><li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li></ul></div>
+                <div class="col-md-4"><h5 class="fw-bold text-white">Newsletter</h5><p class="small text-secondary">Get the latest updates in optical engineering, research, and vision care advancements directly to your inbox.</p><div class="input-group"><input type="email" class="form-control form-control-sm" placeholder="Email address"><button class="btn btn-primary btn-sm">Join</button></div></div>
+            </div>
+            <hr class="mt-5 border-secondary"><div class="text-center"><p class="mb-0 small text-secondary">&copy; <script>document.write(new Date().getFullYear());</script> Opto Engine. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Three.js Interactive Eye Model Script -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+        // --- Setup Scene, Camera, Renderers ---
+        const container = document.getElementById('eye3dContainer');
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0a0f1a);
+        scene.fog = new THREE.FogExp2(0x0a0f1a, 0.008);
+
+        // Camera: Perspective Camera
+        const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+        camera.position.set(3, 1.5, 4);
+        camera.lookAt(0, 0, 0);
+
+        // WebGL Renderer
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true; // subtle shadows if needed
+        container.appendChild(renderer.domElement);
+
+        // CSS2 Renderer for text labels
+        const labelRenderer = new CSS2DRenderer();
+        labelRenderer.setSize(width, height);
+        labelRenderer.domElement.style.position = 'absolute';
+        labelRenderer.domElement.style.top = '0px';
+        labelRenderer.domElement.style.left = '0px';
+        labelRenderer.domElement.style.pointerEvents = 'none';
+        container.appendChild(labelRenderer.domElement);
+
+        // --- Controls with touch/scroll support ---
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;      // inertial movement
+        controls.dampingFactor = 0.05;
+        controls.rotateSpeed = 1.0;
+        controls.zoomSpeed = 1.2;
+        controls.panSpeed = 0.5;
+        controls.enableZoom = true;
+        controls.enableTouchRotate = true;
+        controls.zoomSpeed = 1.0;
+        controls.target.set(0, 0, 0);
+        
+        // --- Lighting ---
+        // Ambient light
+        const ambientLight = new THREE.AmbientLight(0x404060);
+        scene.add(ambientLight);
+        // Main directional light
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(2, 5, 3);
+        dirLight.castShadow = true;
+        dirLight.receiveShadow = false;
+        scene.add(dirLight);
+        // Fill light from below
+        const fillLight = new THREE.PointLight(0x4466cc, 0.3);
+        fillLight.position.set(0, -2, 1);
+        scene.add(fillLight);
+        // Back rim light
+        const rimLight = new THREE.PointLight(0xffaa66, 0.5);
+        rimLight.position.set(-1, 1, -2.5);
+        scene.add(rimLight);
+        
+        // Optional: subtle grid helper floor (invisible but adds reference)
+        const gridHelper = new THREE.GridHelper(6, 20, 0x88aaff, 0x335588);
+        gridHelper.position.y = -1.2;
+        gridHelper.material.transparent = true;
+        gridHelper.material.opacity = 0.2;
+        scene.add(gridHelper);
+        
+        // --- Create the Eye Model (Group) ---
+        const eyeGroup = new THREE.Group();
+        
+        // Sclera (white of the eye) - slightly off-white glossy
+        const scleraGeo = new THREE.SphereGeometry(1.0, 64, 64);
+        const scleraMat = new THREE.MeshStandardMaterial({ color: 0xf0f0f5, roughness: 0.25, metalness: 0.05, emissive: 0x111111 });
+        const sclera = new THREE.Mesh(scleraGeo, scleraMat);
+        sclera.castShadow = true;
+        sclera.receiveShadow = false;
+        eyeGroup.add(sclera);
+        
+        // Cornea (transparent, slightly protruding)
+        const corneaGeo = new THREE.SphereGeometry(1.02, 64, 64, 0, Math.PI * 2, 0, Math.PI / 2.8);
+        const corneaMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, emissive: 0x000000, roughness: 0.1, metalness: 0.9, transparent: true, opacity: 0.35 });
+        const cornea = new THREE.Mesh(corneaGeo, corneaMat);
+        cornea.position.z = 0.98;
+        eyeGroup.add(cornea);
+        
+        // Iris (colored part) - beautiful blue-brown gradient effect
+        const irisGeo = new THREE.CylinderGeometry(0.62, 0.62, 0.05, 48);
+        const irisMat = new THREE.MeshStandardMaterial({ color: 0x4a7db4, roughness: 0.3, metalness: 0.2, emissive: 0x112233 });
+        const iris = new THREE.Mesh(irisGeo, irisMat);
+        iris.position.z = 1.01;
+        iris.rotation.x = Math.PI / 2;
+        eyeGroup.add(iris);
+        
+        // Pupil (dark center)
+        const pupilGeo = new THREE.CylinderGeometry(0.32, 0.32, 0.06, 32);
+        const pupilMat = new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0.1, metalness: 0.8 });
+        const pupil = new THREE.Mesh(pupilGeo, pupilMat);
+        pupil.position.z = 1.045;
+        pupil.rotation.x = Math.PI / 2;
+        eyeGroup.add(pupil);
+        
+        // Lens (crystalline lens inside)
+        const lensGeo = new THREE.SphereGeometry(0.45, 48, 48);
+        const lensMat = new THREE.MeshPhysicalMaterial({ color: 0xddeeff, roughness: 0.2, metalness: 0.1, transparent: true, opacity: 0.65 });
+        const lens = new THREE.Mesh(lensGeo, lensMat);
+        lens.position.z = 0.65;
+        eyeGroup.add(lens);
+        
+        // Optic nerve extension (simple stalk)
+        const nerveGeo = new THREE.CylinderGeometry(0.25, 0.35, 0.8, 12);
+        const nerveMat = new THREE.MeshStandardMaterial({ color: 0xccaa88, roughness: 0.7 });
+        const nerve = new THREE.Mesh(nerveGeo, nerveMat);
+        nerve.position.set(-0.65, -0.4, -0.85);
+        nerve.rotation.z = 0.4;
+        nerve.rotation.x = 0.3;
+        eyeGroup.add(nerve);
+        
+        // Add some subtle blood vessels texture effect (simple lines)
+        const vesselMat = new THREE.MeshStandardMaterial({ color: 0xcc8866 });
+        for (let i = 0; i < 30; i++) {
+            const lineGeo = new THREE.BoxGeometry(0.02, 0.02, 0.08);
+            const vessel = new THREE.Mesh(lineGeo, vesselMat);
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            const rad = 1.02;
+            vessel.position.x = rad * Math.sin(phi) * Math.cos(theta);
+            vessel.position.y = rad * Math.sin(phi) * Math.sin(theta);
+            vessel.position.z = rad * Math.cos(phi);
+            vessel.lookAt(0, 0, 0);
+            if (Math.abs(vessel.position.z) < 0.8) eyeGroup.add(vessel);
+        }
+        
+        scene.add(eyeGroup);
+        
+        // --- Add CSS2D Text Labels for Key Structures ---
+        function makeLabel(text, color, position) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            div.style.color = color;
+            div.style.fontSize = '14px';
+            div.style.fontWeight = 'bold';
+            div.style.textShadow = '1px 1px 0px black';
+            div.style.backgroundColor = 'rgba(0,0,0,0.65)';
+            div.style.padding = '2px 10px';
+            div.style.borderRadius = '20px';
+            div.style.borderLeft = `3px solid ${color}`;
+            div.style.fontFamily = 'Inter, sans-serif';
+            div.style.backdropFilter = 'blur(4px)';
+            div.style.pointerEvents = 'none';
+            div.style.whiteSpace = 'nowrap';
+            const label = new CSS2DObject(div);
+            label.position.copy(position);
+            return label;
+        }
+        
+        const labels = [
+            makeLabel('Cornea', '#7bc5ff', new THREE.Vector3(0, 0.85, 1.35)),
+            makeLabel('Iris', '#6fa8dc', new THREE.Vector3(0.65, 0.45, 1.18)),
+            makeLabel('Pupil', '#ffffff', new THREE.Vector3(0, 0, 1.32)),
+            makeLabel('Lens', '#aad4ff', new THREE.Vector3(0.95, -0.2, 0.85)),
+            makeLabel('Sclera', '#dddddd', new THREE.Vector3(1.35, 0.5, 0.2)),
+            makeLabel('Optic Nerve', '#ffaa77', new THREE.Vector3(-1.2, -0.65, -0.95)),
+            makeLabel('Retina (inner)', '#ffcc88', new THREE.Vector3(0.45, -1.05, -0.45)),
+            makeLabel('Macula Region', '#ff9966', new THREE.Vector3(0.25, -0.35, -1.15))
+        ];
+        
+        labels.forEach(label => scene.add(label));
+        
+        // --- Add subtle particle effect for depth (stars / floaties)---
+        const starGeometry = new THREE.BufferGeometry();
+        const starCount = 600;
+        const starPositions = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount; i++) {
+            starPositions[i*3] = (Math.random() - 0.5) * 200;
+            starPositions[i*3+1] = (Math.random() - 0.5) * 100;
+            starPositions[i*3+2] = (Math.random() - 0.5) * 80 - 40;
+        }
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+        const starMaterial = new THREE.PointsMaterial({ color: 0x88aaff, size: 0.08, transparent: true, opacity: 0.5 });
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        scene.add(stars);
+        
+        // Simple rotation animation for stars? optional slow drift
+        function animateStars() {
+            stars.rotation.y += 0.0005;
+            stars.rotation.x += 0.0003;
+            requestAnimationFrame(animateStars);
+        }
+        animateStars();
+        
+        // --- Animation Loop & Responsive Resize ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update(); // update for damping
+            renderer.render(scene, camera);
+            labelRenderer.render(scene, camera);
+        }
+        animate();
+        
+        // Handle window resize for full responsiveness
+        window.addEventListener('resize', onWindowResize, false);
+        function onWindowResize() {
+            const newWidth = container.clientWidth;
+            const newHeight = container.clientHeight;
+            camera.aspect = newWidth / newHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(newWidth, newHeight);
+            labelRenderer.setSize(newWidth, newHeight);
+        }
+        
+        // Optional: small console log to confirm
+        console.log('3D Eye Model Loaded with touch/scroll support');
+    </script>
+</body>
+</html>
