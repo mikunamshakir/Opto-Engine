@@ -4,7 +4,7 @@
 ---
 
 ##  Developed By
-**Muhammad Asim Shakir** - *Lead Developer*
+**Muhammad Asim Shakir** - *Leading Developer*
 
 ##  Technical Architecture
 Opto-Engine uses a modular pipeline:
