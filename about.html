@@ -21,12 +21,235 @@
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
     <!-- Vercel Speed Insights -->
     <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
+    <style>
+      /* --- refined elegance, clean spacing, subtle details --- */
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #1e293b;
+        background: #fafbfc;
+      }
+
+      /* navbar refinement */
+      .navbar {
+        backdrop-filter: blur(6px);
+        background: rgba(255,255,255,0.92) !important;
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+      }
+      .navbar-brand {
+        letter-spacing: -0.02em;
+      }
+      .navbar-brand img {
+        transition: transform 0.2s ease;
+      }
+      .navbar-brand:hover img {
+        transform: scale(1.02);
+      }
+
+      /* hero – softer overlay, clean typography */
+      .hero-section {
+        padding: 100px 0 80px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .hero-section .container {
+        position: relative;
+        z-index: 2;
+      }
+      .hero-section h1 {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      .hero-section .lead {
+        font-weight: 400;
+        opacity: 0.85;
+      }
+
+      /* content sections – generous whitespace */
+      .content-section {
+        padding: 70px 0;
+      }
+      .content-section h2 {
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        position: relative;
+      }
+      .content-section .lead {
+        font-weight: 400;
+        color: #334155;
+      }
+
+      /* value cards – soft, clean */
+      .value-card {
+        background: white;
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        transition: box-shadow 0.25s ease, transform 0.2s ease;
+        border: 1px solid rgba(0,0,0,0.02);
+        height: 100%;
+      }
+      .value-card:hover {
+        box-shadow: 0 12px 32px rgba(0,0,0,0.04);
+        transform: translateY(-4px);
+      }
+      .value-card i {
+        color: #2563eb;
+      }
+      .value-card h4 {
+        font-weight: 600;
+        margin-top: 0.75rem;
+        font-size: 1.25rem;
+      }
+      .value-card p {
+        color: #475569;
+        font-size: 0.95rem;
+      }
+
+      /* leadership cards – clean, minimal */
+      .leader-card {
+        background: white;
+        border-radius: 28px;
+        padding: 2rem 1.5rem 1.75rem;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+        border: 1px solid rgba(0,0,0,0.02);
+        transition: box-shadow 0.2s ease;
+        height: 100%;
+      }
+      .leader-card:hover {
+        box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+      }
+      .leader-card img {
+        object-fit: cover;
+        border: 3px solid #f1f5f9;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      }
+      .leader-card h5 {
+        font-weight: 700;
+        margin-top: 1rem;
+        letter-spacing: -0.01em;
+      }
+      .leader-card .text-primary {
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+      .leader-card small {
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+
+      /* stats border */
+      .stat-block {
+        border-left: 3px solid #2563eb;
+        padding-left: 1.25rem;
+      }
+      .stat-block h3 {
+        font-weight: 700;
+        font-size: 2rem;
+        color: #2563eb;
+        margin-bottom: 0.15rem;
+        letter-spacing: -0.02em;
+      }
+      .stat-block p {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+
+      /* CTA button */
+      .btn-primary {
+        background: #2563eb;
+        border: none;
+        padding: 0.7rem 2.2rem;
+        font-weight: 500;
+        border-radius: 60px;
+        transition: background 0.2s ease, transform 0.15s ease;
+        letter-spacing: -0.01em;
+      }
+      .btn-primary:hover {
+        background: #1d4ed8;
+        transform: scale(1.02);
+      }
+
+      /* footer */
+      footer {
+        background: #0b1120;
+        padding: 3.5rem 0 2rem;
+        border-top: 1px solid rgba(255,255,255,0.02);
+      }
+      footer h5 {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: white;
+      }
+      footer .text-secondary {
+        color: #94a3b8 !important;
+      }
+      footer .social-icons a {
+        transition: color 0.2s ease;
+        color: #64748b;
+      }
+      footer .social-icons a:hover {
+        color: white;
+      }
+      footer .hover-link {
+        transition: color 0.2s ease;
+      }
+      footer .hover-link:hover {
+        color: white !important;
+      }
+      footer hr {
+        opacity: 0.15;
+      }
+      .input-group .form-control {
+        border-radius: 60px 0 0 60px;
+        border: 1px solid #1e293b;
+        background: #1e293b;
+        color: white;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+      .input-group .form-control::placeholder {
+        color: #64748b;
+      }
+      .input-group .btn {
+        border-radius: 0 60px 60px 0;
+        background: #2563eb;
+        border: none;
+        font-weight: 500;
+        padding: 0.5rem 1.25rem;
+      }
+      .input-group .btn:hover {
+        background: #1d4ed8;
+      }
+
+      /* image rounding */
+      .rounded-shadow {
+        border-radius: 28px;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.04);
+      }
+
+      /* responsive touches */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 80px 0 60px;
+        }
+        .content-section {
+          padding: 50px 0;
+        }
+        .stat-block {
+          border-left: none;
+          padding-left: 0;
+          border-top: 2px solid #2563eb;
+          padding-top: 0.75rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
         <div class="container">
-          <!-- Brand with logo + text: logo appears before "Opto Engine" -->
           <a class="navbar-brand fw-bold text-primary" href="index.html">
             <img
               src="logo.png"
@@ -54,7 +277,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Offcanvas Menu -->
           <div
             class="offcanvas offcanvas-end"
             tabindex="-1"
@@ -74,12 +296,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    aria-current="page"
-                    href="index.html"
-                    >Home</a
-                  >
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="research.html">Research</a>
@@ -95,45 +312,15 @@
                     Resources
                   </a>
                   <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="anatomy.html">Anatomy</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="physiology.html"
-                        >Physiology</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item"
-                        href="primary-care-optometry.html"
-                        >Primary Care Optometry</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="occular-optometry.html"
-                        >Ocular/Medical Optometry</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="low-vision-optometry.html"
-                        >Low Vision Optometry</a
-                      >
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="other-fields.html"
-                        >Other Fields</a
-                      >
-                    </li>
+                    <li><a class="dropdown-item" href="anatomy.html">Anatomy</a></li>
+                    <li><a class="dropdown-item" href="physiology.html">Physiology</a></li>
+                    <li><a class="dropdown-item" href="primary-care-optometry.html">Primary Care Optometry</a></li>
+                    <li><a class="dropdown-item" href="occular-optometry.html">Ocular/Medical Optometry</a></li>
+                    <li><a class="dropdown-item" href="low-vision-optometry.html">Low Vision Optometry</a></li>
+                    <li><a class="dropdown-item" href="other-fields.html">Other Fields</a></li>
                     <li><hr class="dropdown-divider" /></li>
-                    <li>
-                      <a class="dropdown-item" href="about.html">About Us</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="contact.html"
-                        >Contact Us</a
-                      >
-                    </li>
+                    <li><a class="dropdown-item" href="about.html">About Us</a></li>
+                    <li><a class="dropdown-item" href="contact.html">Contact Us</a></li>
                   </ul>
                 </li>
               </ul>
@@ -148,8 +335,8 @@
         class="hero-section"
         style="
           background-image:
-            linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-            url(&quot;https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop&quot;);
+            linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+            url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1470&auto=format&fit=crop');
         "
       >
         <div class="container text-center">
@@ -177,15 +364,15 @@
               </p>
               <div class="row mt-4">
                 <div class="col-6">
-                  <div class="border-start border-4 border-primary ps-3">
-                    <h3 class="fw-bold text-primary">15+</h3>
-                    <p class="text-muted">Research Partners</p>
+                  <div class="stat-block">
+                    <h3>15+</h3>
+                    <p>Research Partners</p>
                   </div>
                 </div>
                 <div class="col-6">
-                  <div class="border-start border-4 border-primary ps-3">
-                    <h3 class="fw-bold text-primary">Number Of</h3>
-                    <p class="text-muted">Published Articles</p>
+                  <div class="stat-block">
+                    <h3>Number Of</h3>
+                    <p>Published Articles</p>
                   </div>
                 </div>
               </div>
@@ -193,7 +380,7 @@
             <div class="col-lg-6">
               <img
                 src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=1470&auto=format&fit=crop"
-                class="img-fluid rounded shadow-lg"
+                class="img-fluid rounded-shadow"
                 alt="Team working in optics lab"
               />
             </div>
@@ -206,19 +393,25 @@
           <h2 class="fw-bold text-center mb-5">Our Core Values</h2>
           <div class="row g-4 text-center">
             <div class="col-md-4">
-              <i class="fas fa-flask fa-3x text-primary mb-3"></i>
-              <h4 class="h5">Scientific Integrity</h4>
-              <p>Rigorous peer-review and evidence-based resources.</p>
+              <div class="value-card">
+                <i class="fas fa-flask fa-3x text-primary mb-3"></i>
+                <h4 class="h5">Scientific Integrity</h4>
+                <p>Rigorous peer-review and evidence-based resources.</p>
+              </div>
             </div>
             <div class="col-md-4">
-              <i class="fas fa-globe fa-3x text-primary mb-3"></i>
-              <h4 class="h5">Open Access</h4>
-              <p>Knowledge freely available to advance global eye care.</p>
+              <div class="value-card">
+                <i class="fas fa-globe fa-3x text-primary mb-3"></i>
+                <h4 class="h5">Open Access</h4>
+                <p>Knowledge freely available to advance global eye care.</p>
+              </div>
             </div>
             <div class="col-md-4">
-              <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
-              <h4 class="h5">Collaborative Spirit</h4>
-              <p>Partnerships across academia, industry, and clinics.</p>
+              <div class="value-card">
+                <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+                <h4 class="h5">Collaborative Spirit</h4>
+                <p>Partnerships across academia, industry, and clinics.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -229,36 +422,41 @@
           <h2 class="fw-bold text-center mb-4">Meet the Leadership</h2>
           <div class="row g-4">
             <div class="col-md-4 text-center">
-              <img
-                src="me.jpeg"
-                class="rounded-circle mb-3"
-                width="140"
-                height="140"
-              />
-              <h5 class="fw-bold">Muhammad Asim Shakir</h5>
-              <p class="text-primary">Software Engineer - Leading Developer</p>
-              <small>Student of Optometry</small>
+              <div class="leader-card">
+                <img
+                  src="me.jpeg"
+                  class="rounded-circle mb-3"
+                  width="140"
+                  height="140"
+                  alt="Muhammad Asim Shakir"
+                />
+                <h5 class="fw-bold">Muhammad Asim Shakir</h5>
+                <p class="text-primary">Software Engineer - Leading Developer</p>
+                <small>Student of Optometry</small>
+              </div>
             </div>
             <div class="col-md-4 text-center">
-              <img
-                src="she.png"
-                class="rounded-circle mb-3"
-                width="140"
-                height="140"
-              />
-              <h5 class="fw-bold">Fiza Batool</h5>
-              <p class="text-primary">Media Controller - Researcher</p>
-              <small>Student Of Optometry</small>
+              <div class="leader-card">
+                <img
+                  src="she.png"
+                  class="rounded-circle mb-3"
+                  width="140"
+                  height="140"
+                  alt="Fiza Batool"
+                />
+                <h5 class="fw-bold">Fiza Batool</h5>
+                <p class="text-primary">Media Controller - Researcher</p>
+                <small>Student Of Optometry</small>
+              </div>
             </div>
           </div>
           <div class="text-center mt-5">
-            <a href="contact.html" class="btn btn-primary btn-lg"
-              >Join Our Network →</a
-            >
+            <a href="contact.html" class="btn btn-primary btn-lg">Join Our Network →</a>
           </div>
         </div>
       </section>
     </main>
+
     <footer>
       <div class="container">
         <div class="row g-4 text-center text-md-start">
@@ -270,51 +468,19 @@
               optometrists.
             </p>
             <div class="social-icons mt-4">
-              <a href="#" class="text-secondary me-3"
-                ><i class="fab fa-facebook-f fa-lg"></i
-              ></a>
-              <a href="#" class="text-secondary me-3"
-                ><i class="fab fa-twitter fa-lg"></i
-              ></a>
-              <a href="#" class="text-secondary me-3"
-                ><i class="fab fa-linkedin-in fa-lg"></i
-              ></a>
-              <a href="#" class="text-secondary"
-                ><i class="fab fa-instagram fa-lg"></i
-              ></a>
+              <a href="#" class="text-secondary me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+              <a href="#" class="text-secondary me-3"><i class="fab fa-twitter fa-lg"></i></a>
+              <a href="#" class="text-secondary me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+              <a href="#" class="text-secondary"><i class="fab fa-instagram fa-lg"></i></a>
             </div>
           </div>
           <div class="col-md-4">
             <h5 class="fw-bold text-white text-md-center">Quick Links</h5>
             <ul class="list-unstyled text-md-center">
-              <li>
-                <a
-                  href="privacy.html"
-                  class="text-secondary text-decoration-none hover-link"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a
-                  href="terms.html"
-                  class="text-secondary text-decoration-none hover-link"
-                  >Terms of Service</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="text-secondary text-decoration-none hover-link"
-                  >Contact Support</a
-                >
-              </li>
-              <li>
-                <a
-                  href="about.html"
-                  class="text-secondary text-decoration-none hover-link"
-                  >About Us</a
-                >
-              </li>
+              <li><a href="privacy.html" class="text-secondary text-decoration-none hover-link">Privacy Policy</a></li>
+              <li><a href="terms.html" class="text-secondary text-decoration-none hover-link">Terms of Service</a></li>
+              <li><a href="contact.html" class="text-secondary text-decoration-none hover-link">Contact Support</a></li>
+              <li><a href="about.html" class="text-secondary text-decoration-none hover-link">About Us</a></li>
             </ul>
           </div>
           <div class="col-md-4">
