@@ -23,28 +23,10 @@
             background: #fafbfc;
         }
 
-        .trial-banner {
-            background: #f8d7da;
-            color: #721c24;
-            text-align: center;
-            padding: 10px 0;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border-bottom: 2px solid #f5c6cb;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            letter-spacing: 0.3px;
-        }
-        .trial-banner i {
-            margin-right: 8px;
-        }
-
         .navbar {
             backdrop-filter: blur(6px);
             background: rgba(255,255,255,0.92) !important;
             border-bottom: 1px solid rgba(0,0,0,0.04);
-            top: 42px;
         }
         .navbar-brand {
             letter-spacing: -0.02em;
@@ -190,8 +172,7 @@
         iframe {
             border-radius: 20px;
             width: 100%;
-            height: 100%;
-            min-height: 280px;
+            height: 280px;
             box-shadow: 0 4px 16px rgba(0,0,0,0.04);
             border: 1px solid rgba(0,0,0,0.02);
         }
@@ -340,14 +321,11 @@
             .content-section {
                 padding: 50px 0;
             }
-            .navbar {
-                top: 38px;
-            }
             .model-container {
                 height: 280px;
             }
             iframe {
-                min-height: 200px;
+                height: 200px;
             }
             .part-card:hover {
                 transform: translateX(4px);
@@ -358,10 +336,6 @@
     <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
 </head>
 <body>
-    <div class="trial-banner">
-        <i class="fas fa-flask"></i> TRIAL BASED PROJECT — SHOWCASE PURPOSE (ONLY)
-    </div>
-
     <header>
         <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
         <div class="container">
@@ -513,7 +487,7 @@
                     <div class="interactive-video">
                         <div>
                             <h4 class="fw-bold mb-3"><i class="fas fa-play-circle text-primary me-2"></i> Educational Video</h4>
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/qz62nt4AJPY?si=c07jSu8k8Hsp8wYI" title="Eye Anatomy Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 16px;"></iframe>
+                            <iframe src="https://www.youtube.com/embed/qz62nt4AJPY?si=c07jSu8k8Hsp8wYI" title="Eye Anatomy Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             <p class="small text-muted mt-2">Comprehensive walkthrough of ocular structures (Source: AnatomyZone)</p>
                         </div>
                     </div>
