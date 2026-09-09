@@ -22,25 +22,7 @@
     <!-- Vercel Speed Insights -->
     <script defer src="https://va.vercel-scripts.com/v1/speed-insights/script.js"></script>
     <style>
-      /* --- trial banner --- */
-      .trial-banner {
-        background: #f8d7da;
-        color: #721c24;
-        text-align: center;
-        padding: 10px 0;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border-bottom: 2px solid #f5c6cb;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        letter-spacing: 0.3px;
-      }
-      .trial-banner i {
-        margin-right: 8px;
-      }
-
-      /* --- refined elegance, clean spacing --- */
+      /* --- refined elegance, clean spacing, subtle details --- */
       body {
         font-family: 'Inter', sans-serif;
         color: #1e293b;
@@ -52,7 +34,6 @@
         backdrop-filter: blur(6px);
         background: rgba(255,255,255,0.92) !important;
         border-bottom: 1px solid rgba(0,0,0,0.04);
-        top: 42px; /* offset for trial banner */
       }
       .navbar-brand {
         letter-spacing: -0.02em;
@@ -70,7 +51,6 @@
         background-size: cover;
         background-position: center;
         position: relative;
-        margin-top: 0;
       }
       .hero-section .container {
         position: relative;
@@ -126,7 +106,7 @@
         font-size: 0.95rem;
       }
 
-      /* leadership cards – clean, minimal, centered */
+      /* leadership cards – clean, minimal */
       .leader-card {
         background: white;
         border-radius: 28px;
@@ -135,8 +115,6 @@
         border: 1px solid rgba(0,0,0,0.02);
         transition: box-shadow 0.2s ease;
         height: 100%;
-        max-width: 340px;
-        margin: 0 auto;
       }
       .leader-card:hover {
         box-shadow: 0 12px 30px rgba(0,0,0,0.04);
@@ -160,7 +138,7 @@
         font-size: 0.85rem;
       }
 
-      /* stats */
+      /* stats border */
       .stat-block {
         border-left: 3px solid #2563eb;
         padding-left: 1.25rem;
@@ -265,18 +243,10 @@
           border-top: 2px solid #2563eb;
           padding-top: 0.75rem;
         }
-        .navbar {
-          top: 38px;
-        }
       }
     </style>
   </head>
   <body>
-    <!-- TRIAL BANNER -->
-    <div class="trial-banner">
-      <i class="fas fa-flask"></i> TRIAL BASED PROJECT — SHOWCASE PURPOSE (ONLY)
-    </div>
-
     <header>
       <nav class="navbar navbar-expand-lg bg-white fixed-top shadow-sm">
         <div class="container">
@@ -447,13 +417,12 @@
         </div>
       </section>
 
-      <!-- LEADERSHIP SECTION – CARDS CENTRALIZED -->
       <section class="py-5">
         <div class="container">
           <h2 class="fw-bold text-center mb-4">Meet the Leadership</h2>
-          <div class="row g-4 justify-content-center">
-            <div class="col-md-4 d-flex justify-content-center">
-              <div class="leader-card text-center">
+          <div class="row g-4">
+            <div class="col-md-4 text-center">
+              <div class="leader-card">
                 <img
                   src="me.jpeg"
                   class="rounded-circle mb-3"
@@ -466,8 +435,8 @@
                 <small>Student of Optometry</small>
               </div>
             </div>
-            <div class="col-md-4 d-flex justify-content-center">
-              <div class="leader-card text-center">
+            <div class="col-md-4 text-center">
+              <div class="leader-card">
                 <img
                   src="she.png"
                   class="rounded-circle mb-3"
